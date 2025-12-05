@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "demo",
     "dist",
     "LICENSE",
     "LICENSE-COMMERCIAL.md",
@@ -28,6 +27,14 @@
   ],
   "author": "Janisha",
   "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janisha/html-docx-api-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/janisha/html-docx-api-js/issues"
+  },
+  "homepage": "https://github.com/janisha/html-docx-api-js#readme",
   "peerDependencies": {
     "docx": "^8.0.0"
   },
