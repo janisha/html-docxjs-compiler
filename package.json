@@ -1,11 +1,15 @@
 {
   "name": "html-docx-compiler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert HTML to DOCX elements.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "demo",
+    "dist",
+    "LICENSE",
+    "LICENSE-COMMERCIAL.md",
+    "README.md"
   ],
   "scripts": {
     "build": "tsc",
