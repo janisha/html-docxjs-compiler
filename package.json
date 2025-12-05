@@ -22,8 +22,8 @@
     "html-to-docx",
     "document"
   ],
-  "author": "Your Name",
-  "license": "MIT",
+  "author": "Janisha",
+  "license": "SEE LICENSE IN LICENSE",
   "peerDependencies": {
     "docx": "^8.0.0"
   },

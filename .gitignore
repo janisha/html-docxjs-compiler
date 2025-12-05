@@ -10,3 +10,6 @@ dist/
 coverage/
 .nyc_output/
 *.lcov
+
+# Demo output files
+demo/output/*.docx

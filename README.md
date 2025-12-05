@@ -1,7 +1,7 @@
 # HTML to DOCX Compiler
 
 [![npm version](https://img.shields.io/npm/v/html-docx-compiler.svg)](https://www.npmjs.com/package/html-docx-compiler)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Dual](https://img.shields.io/badge/License-Dual-blue.svg)](LICENSE)
 
 A powerful and flexible TypeScript library that converts HTML strings into DOCX (Word document) format. Built on top of the excellent [docx](https://www.npmjs.com/package/docx) library, this package parses HTML using [cheerio](https://www.npmjs.com/package/cheerio) and transforms it into `XmlComponent` objects that can be seamlessly integrated with the docx API.
 
@@ -481,7 +481,16 @@ Contributions are welcome! Please feel free to submit issues or pull requests.
 
 ## 📄 License
 
-MIT © [Your Name]
+This project is dual-licensed:
+
+- **Personal/Non-Commercial Use**: Free under MIT-style license
+- **Commercial Use**: €50 one-time fee per organization
+
+See [LICENSE](LICENSE) for full details.
+
+**Commercial License**: If you're using this in a business, company, or for-profit project, you need a commercial license. Contact us to obtain one - it's just €50 for unlimited use within your organization!
+
+**Questions about licensing?** Not sure if your use case is commercial? Contact us and we'll help clarify.
 
 ## 🙏 Acknowledgments
 
