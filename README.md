@@ -414,39 +414,6 @@ interface ImageDownloadStrategy {
 }
 ```
 
-## 🏗️ Architecture
-
-### Design Patterns
-
-- **Strategy Pattern**: Image download strategies for extensibility
-- **Handler Pattern**: Recursive HTML element processing
-- **Chain of Responsibility**: Multiple strategies tried in order
-
-### Project Structure
-
-```
-src/
-├── services/
-│   └── html-to-word.service.ts    # Main transformation logic
-├── handlers/
-│   ├── tag.helper.ts              # Central tag router
-│   ├── paragraph.handler.ts       # Paragraph processing
-│   ├── table/                     # Table handler (modular)
-│   │   ├── index.ts
-│   │   ├── table-cell.ts
-│   │   ├── table-row.ts
-│   │   └── table-dimensions.ts
-│   └── image.handler.ts           # Image processing
-├── strategies/
-│   ├── image-download-strategy.ts      # Strategy interface
-│   ├── http-image-strategy.ts          # HTTP implementation
-│   ├── firebase-image-strategy.ts      # Firebase implementation
-│   └── image-strategy-manager.ts       # Strategy manager
-└── helpers/
-    ├── helpers.ts                 # Style parsing utilities
-    └── constants.ts               # Configuration constants
-```
-
 ## 🔍 How XmlComponents Work
 
 The `docx` library uses `XmlComponent` objects to build Word documents. This package transforms HTML elements into these components:
