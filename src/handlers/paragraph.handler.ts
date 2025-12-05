@@ -3,11 +3,13 @@ import { getAlignment, parseStyle, processHtmlElementStyles } from '../helpers/h
 import { IHtmlElement, IStyles } from './models';
 import { handleTag } from './tag.helper';
 import { handleText } from './text.handler';
+import { HtmlToDocxOptions } from '../services/html-to-word.service';
 
 export async function handleP(
   element: IHtmlElement,
   level: number,
   styles: IStyles = {},
+  config?: HtmlToDocxOptions,
 ): Promise<XmlComponent[]> {
   const children: XmlComponent[] = [];
 
@@ -34,7 +36,7 @@ export async function handleP(
       const tagElement = await handleTag(child, level, {
         ...styles,
         ...elementStyles,
-      });
+      }, config);
       children.push(...tagElement);
     }
   }

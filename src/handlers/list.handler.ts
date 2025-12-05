@@ -3,6 +3,7 @@ import { processHtmlElementStyles } from "../helpers/helpers";
 import { IHtmlElement, IStyles } from "./models";
 import { handleTag } from "./tag.helper";
 import { handleText } from "./text.handler";
+import { HtmlToDocxOptions } from "../services/html-to-word.service";
 
 class PCounter {
   static counter = 1000;
@@ -11,7 +12,8 @@ class PCounter {
 export async function handleList(
   element: IHtmlElement,
   level: number = 0,
-  styles: IStyles = {}
+  styles: IStyles = {},
+  config?: HtmlToDocxOptions
 ): Promise<XmlComponent[]> {
   const items: XmlComponent[] = [];
   const elementStyles = processHtmlElementStyles(element);
@@ -34,7 +36,7 @@ export async function handleList(
     else if (element.name === 'ol')
       delete subStyles['bullet'];
 
-    items.push(...(await handleLi(listElement, level, subStyles)));
+    items.push(...(await handleLi(listElement, level, subStyles, config)));
   }
 
   return items;
@@ -45,6 +47,7 @@ export async function handleLi(
   element: IHtmlElement,
   level: number,
   styles: IStyles = {},
+  config?: HtmlToDocxOptions,
 ): Promise<XmlComponent[]> {
   const items: XmlComponent[] = [];
   let tempParagraph: Paragraph | null = null;
@@ -87,7 +90,7 @@ export async function handleLi(
       }
 
       const sublevel = ['ul', 'ol'].includes(child.name) ? level + 1 : level;
-      const itemsToAdd = await handleTag(child, sublevel, {...styles, ...elementStyles});
+      const itemsToAdd = await handleTag(child, sublevel, {...styles, ...elementStyles}, config);
       items.push(...itemsToAdd);
     }
   }

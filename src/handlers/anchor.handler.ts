@@ -2,10 +2,12 @@ import { ExternalHyperlink, XmlComponent } from 'docx';
 import { processHtmlElementStyles } from '../helpers/helpers';
 import { IHtmlElement, IStyles } from './models';
 import { processTextElementTag } from './text.handler';
+import { HtmlToDocxOptions } from '../services/html-to-word.service';
 
 export async function handleA(
   element: IHtmlElement,
   styles: IStyles = {},
+  config?: HtmlToDocxOptions,
 ): Promise<XmlComponent[]> {
   const items: XmlComponent[] = [];
   const elementStyles = processHtmlElementStyles(element);
@@ -16,7 +18,7 @@ export async function handleA(
     style: 'Hyperlink',
   };
 
-  const tagElements = await processTextElementTag(element, stylesMerged);
+  const tagElements = await processTextElementTag(element, stylesMerged, config);
   items.push(...tagElements);
 
   const anchor = new ExternalHyperlink({

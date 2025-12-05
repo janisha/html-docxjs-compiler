@@ -2,12 +2,14 @@ import { HeadingLevel, Paragraph, XmlComponent } from "docx";
 import { processHtmlElementStyles } from "../helpers/helpers";
 import { IHtmlElement, IStyles } from "./models";
 import { handleText } from "./text.handler";
+import { HtmlToDocxOptions } from "../services/html-to-word.service";
 
 
 export async function handleH123456(
   element: IHtmlElement,
   level: number,
-  styles: IStyles = {}
+  styles: IStyles = {},
+  config?: HtmlToDocxOptions,
 ): Promise<XmlComponent[]> {
   const elementStyles = processHtmlElementStyles(element);
   const stylesMerged = { ...styles, ...elementStyles };
