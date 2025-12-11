@@ -26,7 +26,7 @@ npm install html-docxjs-compiler docx
 This package requires `docx` as a peer dependency:
 
 ```bash
-npm install docx@^8.0.0
+npm install docx@^9.5.0
 ```
 
 ## 🎯 Quick Start
