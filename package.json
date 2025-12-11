@@ -1,6 +1,6 @@
 {
  "name": "html-docxjs-compiler",
- "version": "1.0.0",
+ "version": "2.0.0",
  "description": "Convert HTML to DOCXjs elements.",
  "main": "dist/index.js",
  "types": "dist/index.d.ts",
@@ -36,7 +36,7 @@
  },
  "homepage": "https://github.com/janisha/html-docxjs-compiler#readme",
  "peerDependencies": {
-   "docx": "^8.0.0"
+   "docx": "^9.5.0"
  },
  "dependencies": {
    "axios": "^1.6.0",
@@ -46,7 +46,7 @@
  "devDependencies": {
    "@types/jest": "^29.5.14",
    "@types/node": "^20.0.0",
-   "docx": "^8.0.0",
+   "docx": "^9.5.1",
    "jest": "^29.7.0",
    "ts-jest": "^29.4.6",
    "typescript": "^5.0.0"

@@ -50,7 +50,15 @@ export async function handleImage(
   }
 
   try {
-    const base64Data = imageData.replace(/^data:image\/png;base64,/, '');
+    // Extract base64 data and determine image type
+    const base64Match = imageData.match(/^data:image\/(png|jpg|jpeg|gif|bmp);base64,(.*)$/);
+    if (!base64Match) {
+      console.warn(`Invalid image data format for "${href}"`);
+      return [];
+    }
+
+    const imageType = base64Match[1] === 'jpeg' ? 'jpg' : base64Match[1] as 'png' | 'jpg' | 'gif' | 'bmp';
+    const base64Data = base64Match[2];
     const buffer = Buffer.from(base64Data, 'base64');
 
     const p = imageSize(buffer);
@@ -73,7 +81,8 @@ export async function handleImage(
 
     items.push(
       new ImageRun({
-        data: imageData,
+        type: imageType,
+        data: buffer,
         transformation: {
           width: imageWidth!,
           height: imageHeight!,
