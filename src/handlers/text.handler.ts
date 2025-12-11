@@ -1,8 +1,9 @@
 import { IRunOptions, TextRun, XmlComponent } from "docx";
 import { IHtmlElement, IStyles } from "./models";
 import { handleTag } from "./tag.helper";
+import { HtmlToDocxOptions } from "../services/html-to-word.service";
 
-export async function processTextElementTag(element: IHtmlElement, style: IStyles = {}): Promise<XmlComponent[]> {
+export async function processTextElementTag(element: IHtmlElement, style: IStyles = {}, config?: HtmlToDocxOptions): Promise<XmlComponent[]> {
   const items: any[] = [];
 
   try {
@@ -15,7 +16,7 @@ export async function processTextElementTag(element: IHtmlElement, style: IStyle
           ...textRunStyles
         }));
       } else {
-        items.push(...(await handleTag(child, 0, style)));
+        items.push(...(await handleTag(child, 0, style, config)));
       }
     }
   } catch (error) {

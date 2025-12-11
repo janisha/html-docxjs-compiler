@@ -3,9 +3,10 @@ import { processHtmlElementStyles } from "../helpers/helpers";
 import { IHtmlElement, IStyles } from "./models";
 import { handleText } from "./text.handler";
 import { handleTag } from "./tag.helper";
+import { HtmlToDocxOptions } from "../services/html-to-word.service";
 
 
-export async function handleDiv(element: IHtmlElement, style: IStyles): Promise<XmlComponent[]> {
+export async function handleDiv(element: IHtmlElement, style: IStyles, config?: HtmlToDocxOptions): Promise<XmlComponent[]> {
   const items: XmlComponent[] = [];
   
   const elementStyles = processHtmlElementStyles(element);
@@ -21,7 +22,7 @@ export async function handleDiv(element: IHtmlElement, style: IStyles): Promise<
       textElements.push(new TextRun(text));
     } else {
       if(notBlockElement(child)) {
-        const element = await handleTag(child, 0, styles)
+        const element = await handleTag(child, 0, styles, config)
         textElements.push(...element);
       } else {
         if (textElements.length > 0) {
@@ -31,7 +32,7 @@ export async function handleDiv(element: IHtmlElement, style: IStyles): Promise<
           textElements.length = 0;
         }
 
-        const childElements = await handleTag(child, 0, styles);
+        const childElements = await handleTag(child, 0, styles, config);
         items.push(...childElements);
       }
     }

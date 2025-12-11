@@ -5,3 +5,11 @@ dist/
 .env
 .vscode/
 .idea/
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Demo output files
+demo/output/*.docx
